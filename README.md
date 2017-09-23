@@ -39,9 +39,36 @@ docker run --rm -it -v ${PWD}:/mount rubberduck/led-driver-kata
 [make]: https://www.gnu.org/software/make/
 
 ## Stories
-- Turn all the LEDs Off
-- Turn all the LEDs On
-- Turn a Single LED On
-- Turn a Single LED Off
-- The pins are active LOW not HIGH!
 
+### Turn all the LEDs On
+
+Given the LEDs are off
+When requested
+Then all of the LEDs are turned on
+
+### Turn all the LEDs Off
+
+Given the LEDs are on
+When requested
+Then all of the LEDs are turned off
+
+### Turn a Single LED On
+
+Given an LED is off
+When requested
+Then that LED is turned on
+And all other LEDs are in their original state
+
+### Turn a Single LED Off
+
+Given an LED is on
+When requested
+Then that LED is turned off
+And all other LEDs are in their original state
+
+### The pins are active LOW not HIGH!
+
+There was a bug in the spec.
+It turns out that the pins are active LOW, not HIGH.
+All our lights are on when they should be off and vice versa.
+Go fix the bug.

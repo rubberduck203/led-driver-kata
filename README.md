@@ -5,7 +5,6 @@ The hardware isn't ready yet, but the specs are looking pretty good.
 
 The device will have 8 memory mapped, single color, LEDs.
 The pins are active HIGH.
-On power up, all of the lights are off.
 
 The low bit maps to LED1; high bit to LED8.
 
@@ -31,6 +30,8 @@ The following command will start the build tools container and mount the current
 # from the project root directory
 docker run --rm -it -v ${PWD}:/mount rubberduck/led-driver-kata
 ```
+
+Feel free to add any tools you feel you need, but please make sure they are added to the Dockerfile.
 
 [atxmega128a1]: http://www.microchip.com/wwwproducts/en/ATxmega128A1
 [avr-gcc]: http://www.nongnu.org/avr-libc/user-manual/install_tools.html
@@ -65,6 +66,11 @@ Given an LED is on
 When requested
 Then that LED is turned off
 And all other LEDs are in their original state
+
+### Initialize the LEDs
+
+When the driver is initialized
+Then all of the LEDs should be off
 
 ### The pins are active LOW not HIGH!
 
